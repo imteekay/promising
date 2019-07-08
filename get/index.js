@@ -6,7 +6,7 @@ const get = (url) => {
       if (request.readyState !== 4) return;
 
       if (request.status >= 200 && request.status < 300) {
-        resolve(request);
+        resolve(request.response);
       } else {
         reject({
           status: request.status,
@@ -24,7 +24,7 @@ const get = (url) => {
   });
 }
 
-const jsonParse = (request) => JSON.parse(request.response);
+const jsonParse = (response) => JSON.parse(response);
 
 const template = ({ name }) => `<li>${name}</li>`;
 
