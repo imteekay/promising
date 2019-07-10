@@ -24,8 +24,6 @@ const get = (url) => {
   });
 }
 
-const jsonParse = (response) => JSON.parse(response);
-
 const template = ({ name }) => `<li>${name}</li>`;
 
 const renderPokemons = (pokemons) => {
@@ -37,6 +35,6 @@ const renderPokemons = (pokemons) => {
 };
 
 get('https://pokeapi.co/api/v2/pokemon')
-  .then(jsonParse)
+  .then(JSON.parse)
   .then(renderPokemons);
 
